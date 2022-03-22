@@ -1,4 +1,4 @@
-FROM ubuntu:lastes
+FROM ubuntu:lastest
 
 RUN apt-get updaye -y
 RUN apt-get install openjdk-8-jdk
