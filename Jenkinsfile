@@ -17,7 +17,7 @@ pipeline{
         stage("build")
         {
             steps {
-                sh 'docker build -t amitroy3ar/ubuntu:lastest .'
+                sh 'docker build -t test .'
             }
         }
         
@@ -32,7 +32,8 @@ pipeline{
         stage('Push') {
 
 			steps {
-				sh 'docker push amitroy3ar/jenkins:latest'
+			    sh 'docker tag test amitroy3ar/docker:latest'
+				sh 'docker push amitroy3ar/docker:latest'
 			}
 		}
 		
