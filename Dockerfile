@@ -1,6 +1,6 @@
 FROM ubuntu
 
-RUN apt-get updaye -y
+RUN apt-get update -y
 RUN apt-get install openjdk-8-jdk
 RUN apt-get install wget
 RUN apt-get install gnupg
