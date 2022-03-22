@@ -1,43 +1,44 @@
 pipeline{
-
-	agent any
-
-	environment {
+    agent any
+    
+    environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
 	}
-
-	stages {
-	    
-	    stage('gitclone') {
-
-			steps {
-				git 'https://github.com/Amitroyar/Docker-integration.git'
-			}
-		}
-
-		stage('Build') {
-
-			steps {
-				sh 'docker build -t amitroy3ar/jenkins:latest .'
-			}
-		}
-
-		stage('Login') {
-
-			steps {
+	
+    stages {
+        
+        stage("Pulll code from github")
+        {
+            steps { 
+                git branch: 'main', url: 'https://github.com/Amitroyar/Docker-integration.git'
+            }
+        }
+        
+        stage("build")
+        {
+            steps {
+                sh 'docker build -t amitroy3ar/ubuntu:lastest .'
+            }
+        }
+        
+        stage("Login")
+        {
+            steps {
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			}
-		}
-
-		stage('Push') {
+            
+        }
+        
+        stage('Push') {
 
 			steps {
 				sh 'docker push amitroy3ar/jenkins:latest'
 			}
 		}
-	}
-
-	post {
+		
+		
+    }
+    post {
 		always {
 			sh 'docker logout'
 		}
