@@ -1,0 +1,9 @@
+name: Amit-roy
+on:
+  push:
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: new-work
+      run: rcho "hello world" 
