@@ -9,14 +9,14 @@ on:
   schedule:
   - cron: "* * * * *"
 
+env:
+  DAY: Friday
+
 jobs:
 
   build:
 
-    runs-on: ${{ matrix.os}}
-    strategy:
-      matrix:
-        os: [ubuntu-latest,windows-latest]
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
