@@ -30,3 +30,15 @@ jobs:
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+  check-version:
+    runs-on: ubuntu-lastest
+    steps:
+      run: echo hello
+    
+    
+    
+    
+    
+    
+    
+    
